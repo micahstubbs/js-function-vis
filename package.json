@@ -1,0 +1,25 @@
+{
+  "name": "js-function-vis",
+  "version": "1.0.0",
+  "description": "how many function declarations does each javascript file contain?",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/micahstubbs/js-function-vis.git"
+  },
+  "author": "@micahstubbs <micah.stubbs@gmail.com> (https://twitter.com/micahstubbs)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/micahstubbs/js-function-vis/issues"
+  },
+  "homepage": "https://github.com/micahstubbs/js-function-vis#readme",
+  "dependencies": {
+    "csv-write-stream": "^2.0.0",
+    "d3": "^4.4.0",
+    "jsonfile": "^2.4.0",
+    "lodash": "^4.17.2"
+  }
+}
