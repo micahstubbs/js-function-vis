@@ -1,8 +1,4 @@
 size,file
-912,drift/build/flow.js
-8,drift/nightwatch.json
-8,drift/package.json
-8,drift/rollup.config.js
 8,drift/src/about/about.js
 16,drift/src/async/async.js
 8,drift/src/clipboard/clipboard.js

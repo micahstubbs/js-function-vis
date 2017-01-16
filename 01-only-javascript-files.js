@@ -16,8 +16,14 @@ data.forEach(d => {
   if(
     // only javascript files
     d.file.match(/\.js/) !== null &&
+    // only files in the `src` directory
+    d.file.match(/src/) !== null &&
+    // ignore json files
+    d.file.match(/\.json/) === null &&
     // ignore version control files
     d.file.match(gitRegex) === null &&
+    // ignore built files
+    d.file.match(/build/) === null &&
     // ignore node dependencies
     d.file.match(/node_modules/) === null &&
     // ignore binaries
