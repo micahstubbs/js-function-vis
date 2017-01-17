@@ -23,6 +23,7 @@ data.forEach(d => {
   const groupingOrIIFERegex = new RegExp('\\(function\s?\\(', 'g');
   const namedExpressionRegex = new RegExp('\w+ = function\s+\w+\s?\\(', 'g');
   const arrowRegex = new RegExp('=>', 'g');
+  const exportRegex = new RegExp('export function', 'g');
  
   // intitialize counts
   let constructorCount = 0;
@@ -30,6 +31,7 @@ data.forEach(d => {
   let expressionCount = 0;
   let groupingOrIIFECount = 0;
   let arrowCount = 0;
+  let exportCount = 0;
 
   // count number of function declarations
   const constructorMatch = currentFile.match(constructorRegex);
@@ -55,11 +57,11 @@ data.forEach(d => {
   const arrowMatch = currentFile.match(arrowRegex);
   if (arrowMatch !== null) {
     arrowCount = arrowMatch.length; 
-    if (d.file.match('/notebook/')) {
-      console.log('d.file', d.file);
-      // console.log('arrowMatch', arrowMatch);
-      console.log('arrowMatch.length', arrowMatch.length);
-    }
+  }
+
+  const exportMatch = currentFile.match(exportRegex);
+  if (exportMatch !== null) {
+    exportCount = exportMatch.length;
   }
 
   const totalCount = [
@@ -67,7 +69,8 @@ data.forEach(d => {
     declarationCount,
     expressionCount,
     groupingOrIIFECount,
-    arrowCount
+    arrowCount,
+    exportCount,
   ].reduce(function(a, b) {
     return a + b;
   }, 0);
@@ -78,6 +81,7 @@ data.forEach(d => {
   d.expressionCount = expressionCount;
   d.groupingOrIIFECount = groupingOrIIFECount;
   d.arrowCount = arrowCount;
+  d.exportCount = exportCount;
   d.totalCount = totalCount;
 
   // add `d` to the outputData array
